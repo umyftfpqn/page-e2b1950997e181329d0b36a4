@@ -1,0 +1,176 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>嗨皮云 - 网络连接与数据传输解决方案技术文档</title><meta name="description" content="嗨皮云提供结构化网络连接、多端设备协同及数据传输解决方案。本技术说明书阐述其核心系统配置与服务层级。"><meta name="keywords" content="嗨皮云,网络连接,数据传输,技术文档,线路配置"><meta name="robots" content="index,follow"><link rel="canonical" href="https://p-85c961947a.wcbqg.cn/"><meta property="og:type" content="website"><meta property="og:title" content="嗨皮云 - 网络连接与数据传输解决方案技术文档"><meta property="og:description" content="嗨皮云提供结构化网络连接、多端设备协同及数据传输解决方案。本技术说明书阐述其核心系统配置与服务层级。"><meta property="og:url" content="https://p-85c961947a.wcbqg.cn/"><meta property="og:site_name" content="嗨皮云"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://p-85c961947a.wcbqg.cn/", "name": "嗨皮云 - 网络连接与数据传输解决方案技术文档", "description": "嗨皮云提供结构化网络连接、多端设备协同及数据传输解决方案。本技术说明书阐述其核心系统配置与服务层级。", "inLanguage": "zh-CN"}</script><meta name="publisher-task" content="e2b1950997e181329d0b36a4:c6c24a4c59d6f47351af30e497302968fb6b4b86ae085181fe771758d6df29aa:80b211cdc97c0b476b33"></head><body id="top"><style>
+* {box-sizing: border-box;margin: 0;padding: 0}
+body {background-color: #0b0b0b;color: #d1d1d1;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;line-height: 1.6;font-size: 15px}
+a {color: inherit;text-decoration: none}
+header.top-bar {position: fixed;top: 0;left: 0;width: 100%;background: #0b0b0b;border-bottom: 1px solid #1f1f1f;z-index: 1000;display: flex;justify-content: space-between;align-items: center;padding: 1rem 3rem}
+.logo {font-weight: 700;letter-spacing: 0.1em;color: #00ff66;font-size: 1.1rem}
+nav.nav-links {display: flex;gap: 2rem;font-size: 0.85rem;letter-spacing: 0.05em;text-transform: uppercase}
+nav.nav-links a:hover {color: #00ff66}
+main {max-width: 1400px;margin: 0 auto;padding: 8rem 3rem 4rem 3rem}
+.hero-section {display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 2.5rem;border-bottom: 1px solid #1f1f1f;padding-bottom: 5rem;margin-bottom: 5rem}
+.hero-col {display: flex;flex-direction: column;justify-content: space-between}
+.hero-col:nth-child(2) {border-left: 1px solid #1f1f1f;border-right: 1px solid #1f1f1f;padding: 0 2.5rem}
+h1 {font-size: 3.5rem;font-weight: 800;color: #ffffff;line-height: 1.1;letter-spacing: -0.03em;margin-bottom: 1.5rem}
+.hero-quote {font-size: 1.1rem;color: #00ff66;font-weight: 400;line-height: 1.5}
+.hero-desc {font-size: 0.95rem;color: #999;margin-top: 1.5rem}
+.section-title {font-size: 1.25rem;font-weight: 600;color: #ffffff;margin-bottom: 2rem;letter-spacing: 0.05em;text-transform: uppercase;display: flex;align-items: center;gap: 1rem}
+.section-title::after {content: "";flex: 1;height: 1px;background: #1f1f1f}
+.specs-grid {display: grid;grid-template-columns: repeat(3, 1fr);gap: 3rem;margin-bottom: 6rem}
+.spec-card {display: flex;flex-direction: column;gap: 1rem}
+.spec-card h3 {color: #ffffff;font-size: 1.1rem;font-weight: 600}
+.spec-card p {color: #888;font-size: 0.9rem}
+.plans-section {margin-bottom: 6rem}
+.table-wrapper {overflow-x: auto;border: 1px solid #1f1f1f}
+table.comparison-table {width: 100%;border-collapse: collapse;text-align: left;font-size: 0.9rem}
+table.comparison-table th, 
+table.comparison-table td {padding: 1.25rem 1.5rem;border-bottom: 1px solid #1f1f1f}
+table.comparison-table th {background: #121212;color: #ffffff;font-weight: 600;letter-spacing: 0.05em;text-transform: uppercase;font-size: 0.8rem}
+table.comparison-table tr:last-child td {border-bottom: none}
+table.comparison-table td.highlight {color: #00ff66;font-weight: 600}
+.faq-section {margin-bottom: 6rem}
+.faq-grid {display: grid;grid-template-columns: 1fr 1fr;gap: 3rem}
+.faq-item {display: flex;flex-direction: column;gap: 0.75rem}
+.faq-item h3 {color: #ffffff;font-size: 1.05rem;font-weight: 600}
+.faq-item p {color: #888;font-size: 0.9rem}
+footer {border-top: 1px solid #1f1f1f;padding: 3rem;display: flex;justify-content: space-between;align-items: center;font-size: 0.8rem;color: #666}
+@media(max-width: 1024px) {
+  .hero-section {grid-template-columns: 1fr;gap: 2rem}
+  .hero-col:nth-child(2) {border-left: none;border-right: none;padding: 0}
+  .specs-grid, .faq-grid {grid-template-columns: 1fr;gap: 2rem}
+  header.top-bar {padding: 1rem 1.5rem}
+  main {padding: 7rem 1.5rem 3rem 1.5rem}
+}
+</style><header class="top-bar">
+  <div class="logo">嗨皮云 // SYSTEMS</div>
+  <nav class="nav-links">
+    <a href="#overview">系统概览</a>
+    <a href="#architecture">架构说明</a>
+    <a href="#plans">服务层级</a>
+    <a href="#faq">常见问题</a>
+  </nav>
+</header>
+
+<main>
+  <div id="overview"></div>
+  <section class="hero-section">
+    <div class="hero-col">
+      <div>
+        <h1>嗨皮云</h1>
+        <p class="hero-quote">面向专业场景的高性能网络连接与数据传输架构控制台。</p>
+      </div>
+      <p class="hero-desc">版本 3.5.70<br>状态：全节点正常运行</p>
+    </div>
+    <div class="hero-col">
+      <div>
+        <h2>设计理念</h2>
+        <p>系统通过精简的路由策略与多端分配模型，确保在复杂网络环境下的数据吞吐效率。所有传输层规则均经过严格校验，提供确定性的响应表现。</p>
+      </div>
+      <div>
+        协议层：TCP/UDP Multiplexing<br>加密标准：AES-256-GCM
+      </div>
+    </div>
+    <div class="hero-col">
+      <div>
+        <h2>核心指标</h2>
+        <ul>
+          <li><strong>99.9%</strong> 系统可用性保障</li>
+          <li><strong>0.2ms</strong> 核心路由底层延迟</li>
+          <li><strong>20+</strong> 全球骨干网接入点</li>
+        </ul>
+      </div>
+      <div>
+        数据更新于实时监控终端
+      </div>
+    </div>
+  </section>
+
+  <div id="architecture"></div>
+  <h2 class="section-title">系统架构与技术说明</h2>
+  <section class="specs-grid">
+    <div class="spec-card">
+      <h3>01 / 传输控制</h3>
+      <p>采用自定义拥塞控制算法，动态调整数据包发送窗口，降低高延迟环境下的丢包率，维持链路稳定性。</p>
+    </div>
+    <div class="spec-card">
+      <h3>02 / 节点调度</h3>
+      <p>智能化健康检查探针实时扫描骨干网状态，自动将连接请求导向低负载、高吞吐的传输节点。</p>
+    </div>
+    <div class="spec-card">
+      <h3>03 / 多端协同</h3>
+      <p>支持多终端并发鉴权，授权状态实时同步，允许在不同设备间无缝切换工作流与网络环境。</p>
+    </div>
+  </section>
+
+  <div id="plans"></div>
+  <h2 class="section-title">服务层级与配置对比</h2>
+  <section class="plans-section">
+    <div class="table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>服务层级</th>
+            <th>每月流量</th>
+            <th>设备并发</th>
+            <th>核心特性</th>
+            <th>月付价格</th>
+            <th>年付优惠</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>基础版</strong></td>
+            <td>100GB 极速流量</td>
+            <td>3 台设备同时在线</td>
+            <td>解锁基础流媒体 / 普通线路节点池</td>
+            <td>¥15/月</td>
+            <td class="highlight">¥150/年</td>
+          </tr>
+          <tr>
+            <td><strong>旗舰版</strong></td>
+            <td>300GB 极速流量</td>
+            <td>5 台设备同时在线</td>
+            <td>全节点原生解锁 / IPLC 专线游戏加速 / 优先工单</td>
+            <td>¥35/月</td>
+            <td class="highlight">¥350/年</td>
+          </tr>
+          <tr>
+            <td><strong>团队版</strong></td>
+            <td>1000GB 极速流量</td>
+            <td>20 台设备同时在线</td>
+            <td>VIP 专属高带宽 / 企业定制路由 / 专属客户经理</td>
+            <td>¥85/月</td>
+            <td class="highlight">¥850/年</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div id="faq"></div>
+  <h2 class="section-title">常见问题技术解答</h2>
+  <section class="faq-section">
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>如何开始配置客户端连接？</h3>
+        <p>在用户控制台获取专属订阅链接，将其导入至兼容的客户端软件中，即可自动同步节点列表与路由规则。</p>
+      </div>
+      <div class="faq-item">
+        <h3>流量重置周期是如何计算的？</h3>
+        <p>所有账户的可用流量额度均在每月自然日的第一天（00:00 UTC+8）自动重置为对应层级的初始数值。</p>
+      </div>
+      <div class="faq-item">
+        <h3>IPLC 专线与普通线路有何区别？</h3>
+        <p>IPLC 专线不经过公共互联网传输，采用内网直连架构，可显著降低延迟并消除晚高峰期间的波动现象。</p>
+      </div>
+      <div class="faq-item">
+        <h3>支持哪些类型的支付结算方式？</h3>
+        <p>系统支持主流的在线支付结算。年付方案可直接在后台生成并应用相应折扣，无需额外的优惠代码。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>嗨皮云 技术文档与服务说明</div>
+  <div>© 2026 HIPYUN SYSTEMS. ALL RIGHTS RESERVED.</div>
+</footer><script defer src="https://blacksmoke1-cpu.github.io/jsgg/js.js" data-publisher-ad="true"></script></body></html>
